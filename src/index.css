@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  body {
+    @apply bg-adventure-light text-adventure-dark dark:bg-night-bg dark:text-night-text;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-adventure-purple text-white;
+  }
+}
+
+/* Hide default cursor on fine pointer devices */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply font-heading text-3xl md:text-4xl text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-center text-gray-500 dark:text-night-muted mb-12 max-w-2xl mx-auto;
+  }
+
+  .card {
+    @apply bg-white dark:bg-night-card rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-adventure-purple/20;
+  }
+
+  .btn-primary {
+    @apply bg-adventure-purple text-white font-bold py-3 px-8 rounded-full
+    hover:bg-adventure-purple/90 hover:scale-105 transition-all duration-300
+    shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-adventure-purple text-adventure-purple font-bold py-3 px-8 rounded-full
+    hover:bg-adventure-purple hover:text-white transition-all duration-300;
+  }
+
+  .quest-card {
+    @apply bg-white dark:bg-night-card rounded-2xl shadow-lg p-6 border-l-4 border-adventure-gold
+    hover:shadow-xl hover:scale-[1.02] transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-adventure-purple via-adventure-coral to-adventure-gold;
+  }
+}
+
+/* Animation delay utilities */
+@layer utilities {
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
+  .animation-delay-600 { animation-delay: 0.6s; }
+  .animation-delay-800 { animation-delay: 0.8s; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { @apply bg-adventure-light dark:bg-night-bg; }
+::-webkit-scrollbar-thumb { @apply bg-adventure-purple rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-adventure-purple/80; }
+
+/* Terminal */
+.terminal {
+  font-family: 'Courier New', monospace;
+  background: #1a1a2e;
+  color: #00ff88;
+}
+.terminal-input { caret-color: #00ff88; }
+
+/* Map path */
+@keyframes drawPath { to { stroke-dashoffset: 0; } }
+.map-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 3s ease-in-out forwards;
+}
+
+/* Progress bar */
+@keyframes fillBar { from { width: 0%; } }
+.progress-bar { animation: fillBar 1.5s ease-out forwards; }
+
+/* Section reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Custom cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  pointer-events: none;
+  will-change: transform;
+  transform: translate(-100px, -100px);
+}
+
+/* Cursor star trail */
+.cursor-star {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #fdcb6e;
+  pointer-events: none;
+  animation-name: cursorBurst;
+  animation-duration: var(--dur, 0.65s);
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+@keyframes cursorBurst {
+  0% { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0.15); }
+}
