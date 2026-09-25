@@ -27,7 +27,7 @@ export default function About() {
         <p className="section-subtitle">The person behind the screen</p>
 
         <div className={`transition-all duration-1000 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Character Card */}
             <div className="card p-8 border-2 border-adventure-gold/30 relative">
               {/* Card header */}

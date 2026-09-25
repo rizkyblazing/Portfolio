@@ -127,7 +127,7 @@ export default function Projects() {
         <h2 className="section-title text-adventure-purple">🗺️ Completed Quests</h2>
         <p className="section-subtitle">Projects and implementations I have completed</p>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}

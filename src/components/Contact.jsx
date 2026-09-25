@@ -38,7 +38,7 @@ export default function Contact() {
           Have a technical problem, project, or opportunity? Let's start a new quest.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact channels */}
           <div className="card p-8">
             <h3 className="font-heading text-lg text-adventure-dark dark:text-night-text mb-6">⚡ Contact Channels</h3>
@@ -54,7 +54,7 @@ export default function Contact() {
                   <span className="text-2xl w-10 h-10 flex items-center justify-center bg-adventure-purple/10 rounded-lg group-hover:bg-adventure-purple/20 transition-colors">
                     {channel.icon}
                   </span>
-                  <div className="min-w-0">
+                  <div className="flex-1 min-w-0">
                     <div className="text-xs text-gray-500 dark:text-night-muted font-semibold uppercase">{channel.label}</div>
                     <div className="text-sm text-adventure-dark dark:text-night-text font-semibold truncate">
                       {channel.value}

@@ -78,7 +78,7 @@ export default function Skills() {
         <h2 className="section-title text-adventure-purple">🎒 My Inventory</h2>
         <p className="section-subtitle">Skills and tools collected along the journey</p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
             <SkillCard key={skill.id} skill={skill} index={index} visible={visible} />
           ))}

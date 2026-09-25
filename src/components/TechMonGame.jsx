@@ -447,7 +447,7 @@ export default function TechMonGame() {
             {/* HELP */}
             {screen === 'help' && (
               <div className="flex-1">
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="bg-white/5 rounded-xl p-5">
                     <h4 className="font-heading text-white mb-3">⌨️ On Desktop</h4>
                     <ul className="space-y-2 text-sm text-white/70">
